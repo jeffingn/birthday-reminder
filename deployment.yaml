@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: birthday-reminder
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: birthday-reminder
+  template:
+    metadata:
+      labels:
+        app: birthday-reminder
+    spec:
+      containers:
+      - name: birthday-reminder
+        image: jeffig/birthday-reminder-app
+        ports:
+        - containerPort: 5000
